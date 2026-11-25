@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RACE CAR LLD — Location de voitures courte & longue durée</title>
+<meta name="description" content="RACE CAR LLD : location de voitures à la journée et LLD à Casablanca. Réservation directe sur WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:ital,wght@0,600;0,800;1,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="nav" id="nav">
+  <a class="brand" id="brand" href="#top"><span>RACE CAR</span><i>LLD</i></a>
+  <nav><a href="#fleet" data-i18n="nav_fleet"></a><a href="#lld" data-i18n="nav_lld"></a><a href="#terms" data-i18n="nav_terms"></a><a href="#faq" data-i18n="nav_faq"></a></nav>
+  <div class="lang" id="lang" role="group" aria-label="Language"></div>
+  <a class="btn sm wa" id="navWa" target="_blank" rel="noopener" data-i18n="wa_btn"></a>
+</header>
+<main id="top">
+  <section class="hero">
+    <div class="stripes" aria-hidden="true"></div>
+    <div class="hero-in">
+      <div class="hero-txt">
+        <p class="eyebrow" data-i18n="eyebrow"></p>
+        <h1 id="h1"></h1>
+        <p class="lead" data-i18n="lead"></p>
+      </div>
+      <ul class="trust">
+        <li><svg viewBox="0 0 24 24"><path d="M3 12l18-8-8 18-2-8z"/></svg><b data-i18n="tr1"></b><span data-i18n="tr1d"></span></li>
+        <li><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><b data-i18n="tr2"></b><span data-i18n="tr2d"></span></li>
+        <li><svg viewBox="0 0 24 24"><path d="M4 16a8 8 0 1116 0M12 16l4-6"/></svg><b data-i18n="tr3"></b><span data-i18n="tr3d"></span></li>
+      </ul>
+    </div>
+    <form class="quick" id="quick">
+      <label><span data-i18n="q_type"></span><select id="qType"></select></label>
+      <label><span data-i18n="q_gear"></span><select id="qGear"></select></label>
+      <label><span data-i18n="q_dur"></span><select id="qDur"></select></label>
+      <button class="btn" type="submit" data-i18n="q_go"></button>
+    </form>
+    <div class="flag" aria-hidden="true"></div>
+  </section>
+
+  <section id="fleet" class="wrap">
+    <h2 class="rv" data-i18n="fleet_title"></h2>
+    <p class="sub rv" data-i18n="fleet_sub"></p>
+    <div class="chips" id="chips" role="group" aria-label="Category"></div>
+    <p class="fnote" id="fNote" hidden></p>
+    <div class="grid" id="cars"></div>
+  </section>
+
+  <section id="lld" class="dark">
+    <div class="wrap">
+      <h2 class="rv" data-i18n="lld_title"></h2>
+      <p class="sub rv" data-i18n="lld_sub"></p>
+      <div class="feat">
+        <div class="rv"><b data-i18n="l1"></b><span data-i18n="l1d"></span></div>
+        <div class="rv"><b data-i18n="l2"></b><span data-i18n="l2d"></span></div>
+        <div class="rv"><b data-i18n="l3"></b><span data-i18n="l3d"></span></div>
+        <div class="rv"><b data-i18n="l4"></b><span data-i18n="l4d"></span></div>
+      </div>
+      <div class="rates rv"><h3 data-i18n="lld_table"></h3><ul id="rates"></ul><button class="btn" type="button" id="lldCta" data-i18n="lld_cta"></button></div>
+    </div>
+    <div class="road" aria-hidden="true"></div>
+  </section>
+
+  <section id="book" class="wrap">
+    <form id="form" class="card form rv" novalidate>
+      <h2 data-i18n="book_title"></h2>
+      <div class="tabs" role="tablist"><button type="button" class="tab" data-mode="short" data-i18n="tab_short"></button><button type="button" class="tab" data-mode="lld" data-i18n="tab_lld"></button></div>
+      <label><span data-i18n="name"></span><input name="name" required autocomplete="name"></label>
+      <label><span data-i18n="phone"></span><input name="phone" type="tel" required inputmode="tel" autocomplete="tel" placeholder="+212 6…"></label>
+      <label><span data-i18n="car"></span><select name="car" id="car" required></select></label>
+      <div class="m-short">
+        <label><span data-i18n="pickup"></span><select name="loc" id="loc"></select></label>
+        <div class="two"><label><span data-i18n="from"></span><input name="from" id="from" type="date"></label><label><span data-i18n="to"></span><input name="to" id="to" type="date"></label></div>
+      </div>
+      <div class="m-lld">
+        <label><span data-i18n="company"></span><input name="company" autocomplete="organization"></label>
+        <div class="two"><label><span data-i18n="months"></span><select name="months" id="months"></select></label><label><span data-i18n="start"></span><input name="start" id="start" type="date"></label></div>
+      </div>
+      <label class="check"><input type="checkbox" id="ok" required><span id="okText"></span></label>
+      <dl class="sum" aria-live="polite" id="sum"></dl>
+      <p class="err" id="err" role="alert" hidden></p>
+      <button class="btn big wa" type="submit" data-i18n="send"></button>
+      <p class="small" id="note"></p>
+    </form>
+  </section>
+
+  <section id="terms" class="wrap two-col">
+    <div class="rv"><h2 data-i18n="terms_title"></h2><ul class="terms" id="termList"></ul></div>
+    <div class="rv" id="faq"><h2 data-i18n="faq_title"></h2><div id="faqList"></div></div>
+  </section>
+
+  <section id="where" class="dark">
+    <div class="wrap loc rv"><div><h2 data-i18n="loc_title"></h2><p data-i18n="loc_text"></p></div>
+      <div class="acts"><a class="btn" id="mapBtn" target="_blank" rel="noopener" data-i18n="map_btn"></a><a class="btn ghost" id="dirBtn" target="_blank" rel="noopener" data-i18n="dir_btn"></a></div></div>
+  </section>
+</main>
+<footer class="foot"><span id="fName"></span><span data-i18n="footer"></span><a id="fWa" target="_blank" rel="noopener"></a></footer>
+<a class="fab" id="fab" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H9l-5 4z"/></svg></a>
+<script src="src/data/agencyConfig.js"></script>
+<script src="src/data/i18n.js"></script>
+<script src="src/services/leads.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
